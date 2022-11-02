@@ -36,8 +36,8 @@ def lambdaFunction(json):
     page.save()
 
     client = boto3.client("s3",
-        aws_access_key_id='AKIAUNIYQCLUMKU7CTGT',
-        aws_secret_access_key= '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'
+        aws_access_key_id='AKIAUNIYQCLUENAOZRUJ',
+        aws_secret_access_key= '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'
     )
     client.upload_file('report.pdf', "smartinformes", 'emergencie_report_ID-'+str(body['id'])+'.pdf', ExtraArgs={'ACL':'public-read'})
     return 'https://smartinformes.s3.amazonaws.com/'+'emergencie_report_ID-'+str(body['id'])+'.pdf'

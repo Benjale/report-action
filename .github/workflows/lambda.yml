@@ -12,8 +12,8 @@ jobs:
       matrix:
         node-version: [14.x]
     env:
-          AWS_ACCESS_KEY_ID: AKIAUNIYQCLUMKU7CTGT
-          AWS_SECRET_ACCESS_KEY: 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
+          AWS_ACCESS_KEY_ID: AKIAUNIYQCLUENAOZRUJ
+          AWS_SECRET_ACCESS_KEY: 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
     steps:
       - name: checkout source code
         uses: actions/checkout@v1
@@ -34,4 +34,4 @@ jobs:
      
       - name: Deploy lambda function
         working-directory: ./functions
-        run: sls deploy
+        run: sls deploy --verbose
