@@ -1,9 +1,9 @@
 name: deploy to lambda
 on:
   push:
-    branches: [ "master"]
+    branches: [ "asd"]
   pull_request:
-    branches: [ "master"]
+    branches: [ "asd"]
 jobs:
   deploy_source:
     name: deploy lambda from source
