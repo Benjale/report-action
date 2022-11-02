@@ -1,0 +1,25 @@
+app: lambda-pdf-create
+service: lambda-pdf-create
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: us-east-1
+
+functions:
+  pdf-create:
+    handler: report.lambdaFunction
+    events:
+      - http:
+          path: /pdf-create
+          method: post
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+

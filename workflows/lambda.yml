@@ -1,0 +1,37 @@
+name: deploy to lambda
+on:
+  push:
+    branches: [ "master"]
+  pull_request:
+    branches: [ "master"]
+jobs:
+  deploy_source:
+    name: deploy lambda from source
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    env:
+          AWS_ACCESS_KEY_ID: AKIAUNIYQCLUMKU7CTGT
+          AWS_SECRET_ACCESS_KEY: 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
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v1
+      - name: Use Node.js 
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: Install serverless
+        working-directory: ./functions
+        run: npm install -g serverless
+      - name: Install serverless-python-requirements
+        working-directory: ./functions
+        run: npm install --save-dev serverless-python-requirements
+        
+      - name: Install python dependencies
+        working-directory: ./functions
+        run: pip install -r requirements.txt
+     
+      - name: Deploy lambda function
+        working-directory: ./functions
+        run: sls deploy
