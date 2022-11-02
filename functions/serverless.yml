@@ -1,5 +1,5 @@
-app: lambda-pdf-create
-service: lambda-pdf-create
+app: lambda-report
+service: lambda-report
 
 frameworkVersion: '3'
 
@@ -9,11 +9,11 @@ provider:
   region: us-east-1
 
 functions:
-  pdf-create:
+  report:
     handler: report.lambdaFunction
     events:
       - http:
-          path: /pdf-create
+          path: /report
           method: post
 
 plugins:
