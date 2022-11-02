@@ -12,8 +12,8 @@ jobs:
       matrix:
         node-version: [14.x]
     env:
-          AWS_ACCESS_KEY_ID: AKIAUNIYQCLUENAOZRUJ
-          AWS_SECRET_ACCESS_KEY: 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
+          AWS_ACCESS_KEY_ID: AKIAUNIYQCLUG3BNRNOA
+          AWS_SECRET_ACCESS_KEY: 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
     steps:
       - name: checkout source code
         uses: actions/checkout@v1
